@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-labelledby="t d">
+  <title id="t">Terminal example with the research demo</title>
+  <desc id="d">Illustrative terminal session: build a database from the demo research report, then ask three questions.</desc>
+  <defs>
+    <style>
+      text{font-family:"JetBrains Mono","Fira Code","Noto Sans Mono CJK SC","Noto Sans CJK SC",Menlo,Consolas,monospace;font-size:15px;fill:#d7dcf0;white-space:pre}
+      .dim{fill:#7d86ad}
+      .p{fill:#7fd1a6}
+      .q{fill:#ffd479}
+      .src{fill:#8fb4ff}
+      .no{fill:#ff9d8a}
+      .cap{font-family:"Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;font-size:12px;fill:#7d86ad}
+    </style>
+  </defs>
+  <rect width="1000" height="640" rx="14" fill="#131735"/>
+  <rect width="1000" height="40" rx="14" fill="#1c2150"/>
+  <rect y="26" width="1000" height="14" fill="#1c2150"/>
+  <circle cx="26" cy="20" r="6.5" fill="#ff6b6b"/><circle cx="48" cy="20" r="6.5" fill="#ffd166"/><circle cx="70" cy="20" r="6.5" fill="#6ee7a1"/>
+  <text x="500" y="25" text-anchor="middle" class="dim" style="font-size:13px">main_rag  -  research_demo</text>
+
+  <text x="28" y="76"><tspan class="p">$</tspan> ./build/main_rag --ingest examples/research_demo.txt demo.db</text>
+  <text x="28" y="100" class="dim">reading txt</text>
+  <text x="28" y="122" class="dim">chunk finished: 15 chunks, embedding</text>
+  <text x="28" y="144" class="dim">embedded 15/15</text>
+  <text x="28" y="166" class="dim">serialize finished</text>
+
+  <text x="28" y="206"><tspan class="p">$</tspan> ./build/main_rag --chat demo.db</text>
+  <text x="28" y="230" class="dim">Loaded 15 chunks. Type a question, or exit to quit.</text>
+
+  <text x="28" y="270" class="q">提问 &gt;&gt;&gt; 这项研究的主要结局指标是什么？</text>
+  <text x="28" y="294" class="dim">Retrieved 3 relevant chunks.</text>
+  <text x="28" y="318">主要结局指标是匹兹堡睡眠质量指数，总分 0 到 21 分，</text>
+  <text x="28" y="340">分数越高说明睡眠越差。（第二章 研究方法）</text>
+
+  <text x="28" y="384" class="q">提问 &gt;&gt;&gt; 干预结束时两组的睡眠得分各是多少？</text>
+  <text x="28" y="408" class="dim">Retrieved 3 relevant chunks.</text>
+  <text x="28" y="432">训练组降到 7.9 分，对照组为 10.1 分。（第三章 研究结果）</text>
+
+  <text x="28" y="476" class="q">提问 &gt;&gt;&gt; 研究者有没有测量过血液中的褪黑素？</text>
+  <text x="28" y="500" class="dim">Retrieved 3 relevant chunks.</text>
+  <text x="28" y="524" class="no">根据当前片段无法得出答案</text>
+
+  <text x="28" y="568" class="q">提问 &gt;&gt;&gt; <tspan class="dim">exit</tspan></text>
+
+  <text x="28" y="614" class="cap" style="font-family:'Noto Sans CJK SC',Arial,sans-serif">Illustrative output. Real answers are worded differently on each run; the demo report itself is fictional.</text>
+</svg>

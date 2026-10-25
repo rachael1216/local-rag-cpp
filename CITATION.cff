@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "local-rag-cpp: a local question answering tool for your own text files"
+type: software
+authors:
+  - family-names: Liu
+    given-names: Rachael
+    alias: "刘瑞琦"
+    email: "24301050114@m.fudan.edu.cn"
+    affiliation: "Fudan University"
+  - family-names: Shen
+    given-names: Philie
+    alias: "沈曹依"
+    email: "25303050175@m.fudan.edu.cn"
+    affiliation: "Fudan University"
+license: MIT
+repository-code: "https://github.com/rachael1216/local-rag-cpp"
+date-released: 2026-10-26
+keywords:
+  - retrieval-augmented generation
+  - llama.cpp
+  - local inference
+  - question answering

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="t d">
+  <title id="t">Graphical abstract: local RAG pipeline</title>
+  <desc id="d">A text file is split into chunks, embedded and stored in a vector file. A question is embedded, matched against the stored chunks, and a local language model answers with chapter references.</desc>
+  <defs>
+    <style>
+      text{font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;fill:#1b2340}
+      .h{font-size:15px;font-weight:700;letter-spacing:.5px}
+      .s{font-size:13px;fill:#5a6285}
+      .t{font-size:26px;font-weight:700}
+      .st{font-size:14px;fill:#5a6285}
+      .lane{font-size:13px;font-weight:700;fill:#ffffff;letter-spacing:1px}
+      .box{fill:#ffffff;stroke:#c9d0ea;stroke-width:1.5}
+      .hot{fill:#eef1fb;stroke:#2b3a9e;stroke-width:1.8}
+      .arrow{stroke:#2b3a9e;stroke-width:2;fill:none}
+      .dash{stroke:#e0742c;stroke-width:2;fill:none;stroke-dasharray:6 5}
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b3a9e"/></marker>
+    <marker id="o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e0742c"/></marker>
+  </defs>
+  <rect width="1200" height="560" rx="18" fill="#f7f8fd"/>
+  <text x="48" y="58" class="t">Ask your own documents, offline</text>
+  <text x="48" y="84" class="st">Question answering over your own text files, using llama.cpp on your own machine</text>
+
+  <!-- lane 1 -->
+  <rect x="48" y="118" width="108" height="26" rx="13" fill="#2b3a9e"/>
+  <text x="102" y="136" text-anchor="middle" class="lane">BUILD ONCE</text>
+
+  <rect x="48" y="158" width="190" height="104" rx="12" class="box"/>
+  <text x="68" y="190" class="h">Your text file</text>
+  <text x="68" y="212" class="s">UTF-8 .txt</text>
+  <text x="68" y="232" class="s">novel, report, paper</text>
+
+  <rect x="300" y="158" width="210" height="104" rx="12" class="hot"/>
+  <text x="320" y="190" class="h">Split into chunks</text>
+  <text x="320" y="212" class="s">sliding window, 500 B</text>
+  <text x="320" y="232" class="s">each chunk keeps its chapter</text>
+
+  <rect x="572" y="158" width="210" height="104" rx="12" class="hot"/>
+  <text x="592" y="190" class="h">Turn text into vectors</text>
+  <text x="592" y="212" class="s">bge-small-zh-v1.5</text>
+  <text x="592" y="232" class="s">runs locally, GGUF</text>
+
+  <rect x="844" y="158" width="190" height="104" rx="12" class="box"/>
+  <text x="864" y="190" class="h">Vector file</text>
+  <text x="864" y="212" class="s">one .db file</text>
+  <text x="864" y="232" class="s">load again, no rebuild</text>
+
+  <path class="arrow" d="M238 210H296" marker-end="url(#a)"/>
+  <path class="arrow" d="M510 210H568" marker-end="url(#a)"/>
+  <path class="arrow" d="M782 210H840" marker-end="url(#a)"/>
+
+  <!-- lane 2 -->
+  <rect x="48" y="308" width="136" height="26" rx="13" fill="#e0742c"/>
+  <text x="116" y="326" text-anchor="middle" class="lane">ASK ANYTIME</text>
+
+  <rect x="48" y="350" width="190" height="124" rx="12" class="box"/>
+  <text x="68" y="382" class="h">Your question</text>
+  <text x="68" y="406" class="s">"In the trial, how did</text>
+  <text x="68" y="426" class="s">sleep scores change?"</text>
+
+  <rect x="300" y="350" width="210" height="124" rx="12" class="hot"/>
+  <text x="320" y="382" class="h">Find related passages</text>
+  <text x="320" y="406" class="s">cosine similarity</text>
+  <text x="320" y="426" class="s">top-3 chunks by default</text>
+
+  <rect x="572" y="350" width="210" height="124" rx="12" class="hot"/>
+  <text x="592" y="382" class="h">Answer from them only</text>
+  <text x="592" y="406" class="s">Qwen2.5-1.5B-Instruct</text>
+  <text x="592" y="426" class="s">streams the reply</text>
+
+  <rect x="844" y="350" width="308" height="124" rx="12" class="box"/>
+  <text x="864" y="382" class="h">Answer with a source</text>
+  <text x="864" y="406" class="s">chapter label travels with</text>
+  <text x="864" y="426" class="s">each passage; if nothing fits,</text>
+  <text x="864" y="446" class="s">it says it cannot tell</text>
+
+  <path class="arrow" d="M238 412H296" marker-end="url(#a)"/>
+  <path class="arrow" d="M510 412H568" marker-end="url(#a)"/>
+  <path class="arrow" d="M782 412H840" marker-end="url(#a)"/>
+
+  <!-- link from vector file to retrieval -->
+  <path class="dash" d="M939 262V300Q939 318 921 318H420Q405 318 405 334V346" marker-end="url(#o)"/>
+  <text x="692" y="310" text-anchor="middle" class="s" style="fill:#c25a16">stored vectors are searched</text>
+
+  <text x="48" y="520" class="s">Your text and your questions stay on your machine. C++23. MIT license.</text>
+  <text x="1152" y="520" text-anchor="end" class="s">Fudan University</text>
+</svg>
