@@ -2,7 +2,8 @@
 
 # local-rag-cpp
 
-**Ask questions about your own text files. The answers come from the text, and everything runs on your computer.**
+**Ask questions about your own text files.  //
+The answers come from the text, and everything runs on your computer.**
 
 **Rachael Liu (刘瑞琦)**<sup>1</sup> · **Philie Shen (沈曹依)**<sup>1</sup>
 
